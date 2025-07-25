@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+{% block title %}Sınav Sonucu{% endblock %}
+{% block content %}
+<div class="card p-4">
+    <h2 class="mb-3">Sınav Sonucu</h2>
+    <h3 class="text-{{ 'success' if attempt.score>=50 else 'danger' }}">
+        Skorunuz: {{ attempt.score }}%
+    </h3>
+    <p class="mb-1">Kişisel En Yüksek Skorunuz: {{ user.best_score }}%</p>
+    <p>Genel En Yüksek Skor: {{ global_best }}%</p>
+    <a href="{{ url_for('main.index') }}" class="btn btn-primary mt-3">Yeniden Dene</a>
+</div>
+{% endblock %}
